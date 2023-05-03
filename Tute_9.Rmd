@@ -4,6 +4,7 @@ author: "jay"
 date: "2023-05-03"
 output: html_document
 ---
+<<<<<<< HEAD
 
 ```{r setup, include=FALSE}
 
@@ -14,6 +15,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 library(ggplot2)
+library(dplyr)
+library(kableExtra)
+library(bookdown)
 ```
 
 
@@ -52,24 +56,6 @@ ggplot(deaths_in_india, aes(x = Year)) +
 
 ```
 
-knitr::opts_chunk$set(echo = FALSE,
-                      eval = TRUE,
-                      message = FALSE, 
-                      warning = FALSE)
-
-library(tidyverse)
-library(dplyr)
-library(ggplot2)
-library(rmarkdown)
-library(ggthemes)
-library(tidyr)
-library(bookdown)
-library(knitr)
-library(kableExtra)
-library(DT)
-
-```
-
 ```{r}
 
 gene_data <- read_csv("data/genes.csv")
@@ -82,4 +68,17 @@ ggplot(gene_data,
            y = `WI-6.R2`)) +
   geom_point(size = 1.5) 
 ```
+
+```{r, message=FALSE, warning=FALSE}
+data<- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+```
+
+```{r, message=FALSE, warning=FALSE}
+x<- data%>% 
+  filter(`Offence Division` %in% c("C Drug offences","A Crimes against the person"))
+
+a <- x%>% select(`Offence Division`,`Incidents Recorded`)
+
+```
+
 
