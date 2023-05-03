@@ -4,3 +4,22 @@ author: "Ashvin Ranatunga"
 date: "2023-05-03"
 output: html_document
 ---
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(dplyr)
+library(kableExtra)
+library(bookdown)
+```
+
+```{r, message=FALSE, warning=FALSE}
+data<- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+```
+
+```{r, message=FALSE, warning=FALSE}
+x<- data%>% 
+  filter(`Offence Division` %in% c("C Drug offences","A Crimes against the person"))
+
+a <- x%>% select(`Offence Division`,`Incidents Recorded`)
+
+```
+
