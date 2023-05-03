@@ -4,3 +4,19 @@ author: "Ashvin Ranatunga"
 date: "2023-05-03"
 output: html_document
 ---
+
+```{r  setup, include= FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,cache = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(readr)
+library(tidyverse)
+library(ggplot2)
+library(magrittr)
+```
+
+```{r}
+crimes_data <- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+```
+
