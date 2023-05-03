@@ -1,9 +1,10 @@
 ---
-title: "Tute_9"
-author: "Ashvin Ranatunga"
+title: "week_9_tut"
+author: "jay"
 date: "2023-05-03"
 output: html_document
 ---
+
 
 ```{r  setup, include= FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE,cache = FALSE, warning = FALSE, message = FALSE)
@@ -18,6 +19,69 @@ library(magrittr)
 
 ```{r}
 crimes_data <- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+ HEAD
+```
+
+
+```{r}
+
+deaths_in_india <- data.frame(
+  Year = c(1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020),
+  Alcohol = c(10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000),
+  Low_Physical_Activity = c(20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000, 65000),
+  Obesity = c(5000, 7500, 10000, 12500, 15000, 17500, 20000, 22500, 25000, 27500),
+  Drug = c(3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500),
+  Smoking = c(15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000)
+)
+
+```
+
+
+```{r}
+library(ggplot2)
+
+ggplot(deaths_in_india, aes(x = Year)) +
+  geom_line(aes(y = Alcohol, color = "Alcohol")) +
+  geom_line(aes(y = Low_Physical_Activity, color = "Low Physical Activity")) +
+  geom_line(aes(y = Obesity, color = "Obesity")) +
+  geom_line(aes(y = Drug, color = "Drug")) +
+  geom_line(aes(y = Smoking, color = "Smoking")) +
+  scale_color_manual(name = "Risk factors",
+                     values = c("Alcohol" = "red",
+                                "Low Physical Activity" = "blue",
+                                "Obesity" = "green",
+                                "Drug" = "purple",
+                                "Smoking" = "orange")) +
+  xlab("Year") +
+  ylab("Number of deaths") +
+  ggtitle("Trends in major risk factors for deaths in India")
+
+```
+
+```{r}
+
+gene_data <- read_csv("data/genes.csv")
+
+```
+
+```{r}
+ggplot(gene_data,
+       aes(x = id,
+           y = `WI-6.R2`)) +
+  geom_point(size = 1.5) 
+```
+
+```{r, message=FALSE, warning=FALSE}
+data<- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+```
+
+```{r, message=FALSE, warning=FALSE}
+x<- data%>% 
+  filter(`Offence Division` %in% c("C Drug offences","A Crimes against the person"))
+
+a <- x%>% select(`Offence Division`,`Incidents Recorded`)
+
+
 ```
 
 
