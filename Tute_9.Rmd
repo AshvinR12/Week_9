@@ -20,3 +20,4 @@ library(magrittr)
 crimes_data <- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
 ```
 
+
