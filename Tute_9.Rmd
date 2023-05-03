@@ -4,3 +4,38 @@ author: "Ashvin Ranatunga"
 date: "2023-05-03"
 output: html_document
 ---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      eval = TRUE,
+                      message = FALSE, 
+                      warning = FALSE)
+
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(rmarkdown)
+library(ggthemes)
+library(tidyr)
+library(bookdown)
+library(knitr)
+library(kableExtra)
+library(DT)
+
+```
+
+```{r}
+
+gene_data <- read_csv("data/genes.csv")
+
+```
+
+```{r}
+ggplot(gene_data,
+       aes(x = id,
+           y = `WI-6.R2`)) +
+  geom_point(size = 1.5) 
+```
+
+
