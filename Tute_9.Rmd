@@ -4,18 +4,13 @@ author: "Ashvin Ranatunga"
 date: "2023-05-03"
 output: html_document
 ---
-```{r}
-library(knitr)
-library(tidyverse)
-library(ggplot2)
-```
 
 ```{r}
   data <- read.csv("Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
 
 ```
-
 ```{r}
+library(ggplot2)
 
 # create a sample dataset
 data <- data.frame(x = c(1, 2, 3, 4, 5), y = c(2, 4, 6, 8, 10))
@@ -24,5 +19,5 @@ data <- data.frame(x = c(1, 2, 3, 4, 5), y = c(2, 4, 6, 8, 10))
 ggplot(data, aes(x = x, y = y)) +
   geom_line()
 
-
+```
 
